@@ -1,0 +1,47 @@
+syntax = "proto3";
+package api;
+
+option go_package = "./api";
+service Movie {
+    rpc GetMovieByIMDBID(MovieRequest) returns(MovieDetail);
+    rpc SearchMovieByName(MovieRequest) returns(stream MovieDetail);
+}
+
+message MovieRequest {
+    string IMDBID = 1;
+    string name = 2;
+    int32 page = 3;
+}
+
+
+message Ratings {
+    string Source = 1;
+    string Value = 2;
+}
+
+message MovieDetail {
+    string Title = 1;
+    string Year = 2;
+    string Rated = 3;
+    string Released = 4;
+    string Runtime = 5;
+    string Genre = 6;
+    string Director = 7;
+    string Writer = 8;
+    string Actors = 9;
+    string Plot = 10;
+    string Language = 11;
+    string Country = 12;
+    string Awards = 13;
+    string Poster = 14;
+    repeated Ratings Ratings = 15;
+    string Metascore = 16;
+    string imdbRating = 17;
+    string imdbVotes = 18;
+    string imdbID = 19;
+    string Type = 20;
+    string DVD = 21;
+    string BoxOffice = 22;
+    string Production = 23;
+    string Website = 24;
+}

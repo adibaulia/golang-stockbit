@@ -1,0 +1,1 @@
+select A.id, A."UserName", B."UserName" AS ParentUserName from users a left join users b on a."Parent" = b.id;
